@@ -8,16 +8,16 @@ class Solution:
         dummy = ListNode(0, head)
         if dummy.next == None:
             return None
-        slow = dummy.next
-        fast = dummy.next.next
-        even_head = fast
+        odd = dummy.next
+        even = dummy.next.next
+        even_head = even
 
-        while fast != None and fast.next != None:
-            slow.next = fast.next
-            fast.next = slow.next.next
+        while even != None and even.next != None:
+            odd.next = even.next
+            even.next = odd.next.next
 
-            slow.next.next = even_head
-            slow = slow.next
-            fast = fast.next
+            odd.next.next = even_head
+            odd = odd.next
+            even = even.next
 
         return head
