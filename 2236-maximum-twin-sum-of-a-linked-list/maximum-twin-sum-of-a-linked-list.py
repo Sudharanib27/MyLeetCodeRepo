@@ -5,43 +5,45 @@
 #         self.next = next
 class Solution:
     def pairSum(self, head: Optional[ListNode]) -> int:
-        #return if no node element
-        if head == None:
-            return 0
-        
-        slow = head
-        fast = head.next
+       
+       #count nodes in the linked list
+        pointer = head
+        count = 0 
+        while pointer:
+            pointer = pointer.next
+            count += 1
+            
 
-        #return the sum if there are only two nodes
-        if fast.next == None:
-            return slow.val + fast.val
+        # find the middle index
+        mid = count // 2
         
-        #find the mid element and last element
-        while(fast.next != None and fast.next.next != None):
-            slow = slow.next
-            fast = fast.next.next
+        # creating the second linked list
+        middle = None
+        cur = head
+        index = 0
+        while cur:
+            if index == mid:
+                middle = cur
+            cur = cur.next
+            index += 1
 
+        #reverse the second half of the linked list
         prev = None
-        cur = slow.next
-        nxt = slow.next.next
-        slow.next =None
-        
-        #reversing second half of the linked list
-        while(nxt != None):
+        cur = middle
+        while cur:
+            nxt = cur.next
             cur.next = prev
-            #print(prev)
             prev = cur
             cur = nxt
-            nxt = nxt.next
 
-        cur.next = prev
+        # find the max sum
         total = 0
-        slow = head
-       
-       #finding the maximum sum
-        while slow != None and fast != None:
-            total = max(total, slow.val + fast.val)
-            slow = slow.next
-            fast = fast.next
+        first = head
+        
+        while prev:
+            total = max(total, first.val + prev.val)
+            first = first.next
+            prev = prev.next
 
         return total
+        
