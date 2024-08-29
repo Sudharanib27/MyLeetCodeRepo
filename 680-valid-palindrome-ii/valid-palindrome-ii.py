@@ -1,5 +1,8 @@
 class Solution:
     def validPalindrome(self, s: str) -> bool:
+        if s == s[::-1]:
+            return True
+            
         def ispalindrome(t, l, r):
             while l < r:
                 if t[l] != t[r]:
