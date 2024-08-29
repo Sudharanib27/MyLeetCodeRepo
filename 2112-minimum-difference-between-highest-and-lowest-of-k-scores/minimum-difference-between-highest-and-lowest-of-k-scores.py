@@ -10,8 +10,7 @@ class Solution:
         k -= 1
         i = 0
 
-        while i+k < n:
-            res = min(res, nums[i+k]-nums[i])
-            i += 1
+        for i in range(n-k):
+            res = min(res, nums[i+k] - nums[i])
         
         return res
