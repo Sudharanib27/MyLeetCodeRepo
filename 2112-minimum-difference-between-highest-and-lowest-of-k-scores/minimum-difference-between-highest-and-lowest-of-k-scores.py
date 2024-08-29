@@ -7,11 +7,11 @@ class Solution:
             return nums[n-1] - nums[0]
             
         res = float("inf")
-        left, right = 0, k-1
+        k -= 1
+        i = 0
 
-        while right < n:
-            res = min(res, nums[right]-nums[left])
-            left += 1
-            right += 1
+        while i+k < n:
+            res = min(res, nums[i+k]-nums[i])
+            i += 1
         
         return res
