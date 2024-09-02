@@ -3,15 +3,14 @@ class Solution:
         g.sort()
         s.sort()
         
-        i, j = 0, 0
+        i, j, res = 0, 0, 0
 
-        while i < len(g):
-            while j < len(s) and g[i] > s[j]:
-                j += 1
-            if j < len(s):
+        while i < len(g) and j < len(s):
+            if g[i] <= s[j]:
                 i += 1
                 j += 1
+                res += 1
             else:
-                break
+                j += 1
         
-        return i
+        return res
