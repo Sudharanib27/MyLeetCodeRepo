@@ -19,7 +19,7 @@ class Solution {
             profit = Math.max(max - min, profit);
             
         }
-        System.out.printf("Min = %d and Max = %d", min, max);
+        // System.out.printf("Min = %d and Max = %d", min, max);
         
         return profit;
         
