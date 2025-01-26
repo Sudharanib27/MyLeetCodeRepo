@@ -20,10 +20,6 @@
 // Approach 2: Greedy, T(n) = O(1), S(n) = O(1)
 class Solution {
     public int findCenter(int[][] edges) {
-        int[] first = edges[0];
-        int[] second = edges[1];
-
-        if (first[0] == second[0] || first[0] == second[1]) return first[0];
-        else return first[1];
+        return edges[0][0] == edges[1][0] || edges[0][0] == edges[1][1] ? edges[0][0] : edges[0][1];
     }
 }
