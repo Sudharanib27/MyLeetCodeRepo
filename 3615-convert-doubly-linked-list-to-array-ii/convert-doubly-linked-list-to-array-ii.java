@@ -25,7 +25,7 @@ class Solution {
             left = left.prev;
         }
 
-        System.out.println(resultList);
+        // System.out.println(resultList);
         int[] result_final = new int[resultList.size()];
 
         for (int i=0; i < resultList.size(); ++i) {
