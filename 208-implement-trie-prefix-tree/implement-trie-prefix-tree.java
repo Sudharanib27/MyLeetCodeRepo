@@ -9,7 +9,6 @@ class Trie {
     
     public void insert(String word) {
         Trie root = this;
-
         for (char ch: word.toCharArray()) {
             if (root.child[ch - 'a'] == null) {
                 root.child[ch - 'a'] = new Trie();
@@ -17,13 +16,11 @@ class Trie {
 
             root = root.child[ch - 'a'];
         }
-
         root.isEnd = true;
     }
     
     public boolean search(String word) {
         Trie root = this;
-
         for (char ch: word.toCharArray()) {
             if (root.child[ch - 'a'] == null) {
                 return false;
@@ -37,7 +34,6 @@ class Trie {
     
     public boolean startsWith(String prefix) {
         Trie root = this;
-
         for (char ch: prefix.toCharArray()) {
             if (root.child[ch - 'a'] == null) {
                 return false;
