@@ -9,7 +9,7 @@ class Solution {
             graph.put(manager[i], list);
         }
 
-        System.out.println(graph);
+        // System.out.println(graph);
 
         return dfs(headID, informTime);
     }
