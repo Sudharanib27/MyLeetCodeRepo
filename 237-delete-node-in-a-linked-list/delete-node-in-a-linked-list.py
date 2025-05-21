@@ -10,14 +10,7 @@ class Solution:
         :type node: ListNode
         :rtype: void Do not return anything, modify node in-place instead.
         """
-        current = node
-        nxt = node.next
-        while nxt:
-            current.val = nxt.val
-            if nxt.next:
-                current = nxt
-            nxt  = nxt.next
-        
-        current.next = None
+        node.val = node.next.val
+        node.next = node.next.next
 
 
